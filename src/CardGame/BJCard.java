@@ -6,7 +6,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class Card extends Group {
+public class BJCard extends Group {
 
 	public static final double WIDTH = 100;
 	public static final double HEIGHT = 150;
@@ -14,7 +14,7 @@ public class Card extends Group {
 	private String suit;
 	private int value;
 
-	public Card(int suit, int value) {
+	public BJCard(int suit, int value) {
 
 		if (1 <= suit && suit <= 4) {
 			if (suit == 1)
@@ -25,11 +25,11 @@ public class Card extends Group {
 				this.suit = "Diamonds";
 			if (suit == 4)
 				this.suit = "Clubs";
-		} 
+		}
 
 		if (2 <= value && value <= 14) {
 			this.value = value;
-		} 
+		}
 
 		Text colorText = new Text();
 		colorText.setText(this.suit);
@@ -66,11 +66,16 @@ public class Card extends Group {
 		} else if (suit == 3) {
 			colorText.setFill(Color.RED);
 			valueText.setFill(Color.RED);
-		} 
+		}
 
 		this.getChildren().addAll(background, colorText, valueText);
 
 	}
-	
 
+	public int getValue(){
+		
+		return this.value;
+		
+	}
+	
 }
