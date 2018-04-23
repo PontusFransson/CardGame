@@ -48,13 +48,13 @@ public class gameMain extends Application {
 				scene.setOnKeyPressed(event -> {
 
 
-					if(event.getCode() == KeyCode.SPACE){
+					if(event.getCode() == KeyCode.DIGIT1){
 
 						player1.hit();
 
 					}
 
-					if(event.getCode() == KeyCode.ENTER){
+					if(event.getCode() == KeyCode.DIGIT2){
 
 						player2.hit();
 

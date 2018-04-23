@@ -12,7 +12,7 @@ import javafx.scene.text.Text;
 public class BJPlayer extends Group {
 
 	Text valueText = new Text();
-	
+
 	static CardDeck deck = new CardDeck();
 
 	ArrayList<BJCard> hand = new ArrayList<BJCard>();
@@ -23,11 +23,11 @@ public class BJPlayer extends Group {
 		deck.shuffle();
 		hit();
 		hit();
-		
-		valueText.setTranslateX(BJCard.WIDTH-20);
-		valueText.setTranslateY(BJCard.HEIGHT+50);
+
+		valueText.setTranslateX(BJCard.WIDTH - 20);
+		valueText.setTranslateY(BJCard.HEIGHT + 50);
 		valueText.setFont(new Font(50));
-		
+
 		this.getChildren().add(valueText);
 
 	}
@@ -36,23 +36,43 @@ public class BJPlayer extends Group {
 
 		int sum = 0;
 
+		int ACounter = 0;
+		
 		for (int i = 0; i < hand.size(); i++) {
 
 			BJCard c = hand.get(i);
+
 			
 			int temp = c.getValue();
-			
+
 			if (temp == 14) {
+				ACounter++;
 				temp = 11;
-			}else if (temp > 10) {
+			} else if (temp > 10) {
 				temp = 10;
 			}
-			
+
 			sum += temp;
 		}
 		
-		if (sum > 21 && hand.contains("A")) {
-			tillfälligt
+		for (BJCard card : hand) {
+
+			if (card.getValue() == 11) {
+
+				ACounter ++;
+				
+			}
+
+		}
+
+		for (int i = 0; i < ACounter; i++) {
+			
+			if(sum > 21){
+				
+				sum -= 10;
+				
+			}
+			
 		}
 		
 		return sum;
@@ -77,11 +97,10 @@ public class BJPlayer extends Group {
 
 	}
 
-	public void showValue(){
-	
+	public void showValue() {
+
 		valueText.setText("Value: " + getHandValue());
-		
+
 	}
-	
-	
+
 }
