@@ -72,7 +72,7 @@ public class BJPlayer extends Group {
 			hand.add(c);
 			this.getChildren().add(c);
 			valueText.setText("Value: " + getHandValue());
-			if(getHandValue() > 21){
+			if (getHandValue() > 21) {
 				stand();
 			}
 		}
@@ -82,8 +82,8 @@ public class BJPlayer extends Group {
 	public void stand() {
 
 		hasStopped = true;
-		
-		if(gameMain.player2.hasStopped){
+
+		if (gameMain.player2.hasStopped) {
 			gameMain.whoWon();
 		}
 
@@ -157,7 +157,7 @@ public class BJPlayer extends Group {
 		if (this.getHandValue() > 21 && otherPlayer.getHandValue() > 21) {
 			return 0;
 		}
-		
+
 		if (this.getHandValue() > otherPlayer.getHandValue()) {
 			return 1;
 		}
@@ -165,8 +165,6 @@ public class BJPlayer extends Group {
 		if (this.getHandValue() < otherPlayer.getHandValue()) {
 			return 2;
 		}
-		
-	
 
 		return 0;
 

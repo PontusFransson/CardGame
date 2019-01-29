@@ -17,7 +17,6 @@ public class gameMain extends Application {
 	public static BJPlayer player1, player2;
 
 	public static Group root = new Group();
-
 	public static Scene scene = new Scene(root, WIDTH, HEIGHT, Color.FORESTGREEN);
 
 	public static void main(String[] args) {
@@ -41,7 +40,7 @@ public class gameMain extends Application {
 
 		primaryStage.setScene(scene);
 		primaryStage.show();
-	
+
 	}
 
 	public static void whoWon() {
@@ -49,7 +48,7 @@ public class gameMain extends Application {
 		Rectangle rec = new Rectangle(gameMain.WIDTH, gameMain.HEIGHT);
 		rec.setFill(Color.BLACK);
 		rec.setOpacity(0.80);
-		
+
 		int compare = player1.compare(player2);
 		Text winText = new Text();
 		if (compare == 1) {
@@ -59,10 +58,10 @@ public class gameMain extends Application {
 		} else {
 			winText.setText("PLAYER2 WON!");
 		}
-		
+
 		winText.setFill(Color.GOLD);
 		winText.setFont(new Font(100));
-		winText.setTranslateX(gameMain.WIDTH/2-winText.getBoundsInLocal().getWidth()/2);
+		winText.setTranslateX(gameMain.WIDTH / 2 - winText.getBoundsInLocal().getWidth() / 2);
 		winText.setTranslateY(325);
 
 		root.getChildren().addAll(rec, winText);
